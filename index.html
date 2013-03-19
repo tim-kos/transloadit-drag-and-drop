@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Transloadit Drag and Drop Demo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" /
+  </head>
+  <body>
+    <form id="upload" action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
+      <input type="hidden" name="params" value="" />
+      <div class="upload-mask">
+        <input type="file" name="file" multiple="multiple" />
+      </div>
+      <div class="drop-area">Drag files here to upload</div>
+    </form>
+
+    <ul class="file-list"></ul>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="lib/jquery.js"><\/script>')</script>
+    <script src="lib/transloadit.js"></script>
+    <script src="lib/modernizr.js"></script>
+    <script src="uploader.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        new TransloaditUploader($('#upload'), {
+          transloaditParams: {
+            auth: {key: '8b0245c7301f453b98040497492144a8'},
+            template_id: 'dfa8688f67b34142b6ae531f08d960d6'
+          },
+          finishCb: function(response) {
+            if (response.uploads) {
+              for (var i in response.uploads) {
+                var file = response.uploads[i];
+                var $li = $('<li>' + file.name + '</li>');
+                $('.file-list').append($li);
+              }
+            };
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

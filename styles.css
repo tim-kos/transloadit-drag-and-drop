@@ -1,0 +1,11 @@
+#upload .drop-area {
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 30px;
+  width: 800px;
+  height: 200px;
+  border: 5px dashed #ccc;
+}
+#upload.hover .drop-area {
+  border: 5px dashed #0af;
+}
