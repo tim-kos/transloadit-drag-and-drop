@@ -13,9 +13,9 @@ function TransloaditUploader($el, opts) {
   };
 
   var params = opts.transloaditParams || {
-    auth: {key: 'YOUR-AUTH-KEY'},
-    template_id: 'YOUR TEMPLATE ID',
-    notify_url: 'YOUR-NOTIFY-URL'
+    auth        : {key: 'YOUR-AUTH-KEY'},
+    template_id : 'YOUR TEMPLATE ID',
+    notify_url  : 'YOUR-NOTIFY-URL'
   };
 
   this.canDoDragAndDrop = Modernizr.draganddrop;
@@ -50,11 +50,11 @@ TransloaditUploader.prototype.bindEvents = function() {
 
 TransloaditUploader.prototype.startUpload = function(opts) {
   var options = {
-    wait: true,
-    modal: true,
-    autoSubmit: false,
-    onSuccess: this.successCb.bind(this),
-    onError: this.errorCb
+    wait       : true,
+    modal      : true,
+    autoSubmit : false,
+    onSuccess  : this.successCb.bind(this),
+    onError    : this.errorCb
   };
 
   if (opts.formData) {
